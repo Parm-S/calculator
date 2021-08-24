@@ -67,16 +67,17 @@ for (let i = 0; i < operators.length; i++) {
 				console.log(history);
 				if (this.id == "=") {
 					let result = eval(history);
-					if (result == Infinity) {
-						result = " 😱 Error! Try another Valid Input. 😱";
-						printOutput(result);
-						printHistory("");
-					} else {
+					if (Number.isFinite(result)) {
 						// let numberFormat = result;
 						// // let numberFormatted = new Intl.NumberFormat('en-us');
 						// // printOutput(numberFormatted.format(numberFormat));
 						// let numberFormatted = numberFormat.toLocaleString('en');
                         // printOutput(numberFormatted);
+						printOutput(result);
+						printHistory("");
+					} else {
+						
+						result = " 😱 Error! Try another Valid Input. 😱";
 						printOutput(result);
 						printHistory("");
 					}
